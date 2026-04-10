@@ -177,6 +177,11 @@ main {
 .card {
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible !important;
+}
+
+.card-body {
+    position: relative; /* Esto ayuda a que el span se ubique mejor */
 }
 
 /* Efecto de elevación al pasar el mouse */
@@ -197,6 +202,7 @@ main {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 
 /* 4. FOOTER
    Lo hacemos un poco más elegante. */
