@@ -204,6 +204,71 @@ main {
 }
 
 
+/* AL FINAL DE TU STYLE.CSS */
+
+/* 1. Contenedor del punto de interacción */
+.punto-interactivo {
+    position: relative; /* Base para posicionar la foto */
+    display: inline-block;
+    cursor: help; /* Indica que hay ayuda/info */
+    color: #e67e22; /* Un color naranja fuego para el icono */
+    margin-left: 10px; /* Separación del nombre */
+    font-size: 0.9em; /* Un poco más chico que el título */
+    transition: transform 0.2s ease;
+}
+
+/* Efecto visual al pasar el mouse por el punto */
+.punto-interactivo:hover {
+    transform: scale(1.2); /* Se agranda un poquito */
+}
+
+/* La foto (Estado inicial: OCULTA) */
+.foto-emergente {
+    display: block !important; /* La mantenemos en block pero invisible */
+    opacity: 0;                /* Invisible */
+    visibility: hidden;        /* No bloquea el mouse cuando está oculta */
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 200px;
+    border: 3px solid #e67e22;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    z-index: 9999;
+    
+    /* ESTO HACE LA MAGIA DEL RETRASO AL CERRARSE */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transition-delay: 0s; /* Aparece instantáneamente al entrar */
+}
+
+
+/* REGLA: Cuando el mouse está sobre el PUNTO, mostramos la foto */
+.punto-interactivo:hover .foto-emergente {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    transition-delay: 0s; /* Sin demora al abrir */
+}
+
+/* 3. REGLA: Cuando el mouse SALE del punto, la foto tarda 1 segundo en ocultarse */
+.punto-interactivo .foto-emergente {
+    transition-delay: 1s; /* <--- AQUÍ ESTÁ EL SEGUNDO DE ESPERA */
+}
+
+/* Animación de aparición */
+@keyframes fadeInTooltip {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+
 /* 4. FOOTER
    Lo hacemos un poco más elegante. */
 footer {
