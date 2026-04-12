@@ -269,6 +269,20 @@ main {
 }
 
 
+.titulo-salvajes {
+    text-align: center;         /* Centra el texto */
+    display: block;             /* Asegura que ocupe el bloque completo */
+    width: 100%;                /* Obliga a que ocupe el ancho total para centrar bien */
+    color: #333333;             /* Un gris oscuro (casi negro) para mayor contraste */
+    font-weight: bold;          /* Le da más peso visual */
+    text-shadow: none;          /* Quitamos la sombra suave que hacía que se viera "desenfocado" */
+    margin: 40px auto;          /* 'auto' en los lados ayuda a centrar si el contenedor es estrecho */
+    border-bottom: 2px solid #333; /* Línea del mismo color oscuro */
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+
 /* 4. FOOTER
    Lo hacemos un poco más elegante. */
 footer {
