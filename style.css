@@ -1,12 +1,9 @@
-/* 1. LIMPIEZA Y FONDO
-   Mantenemos tu efecto de fondo desenfocado porque le da mucha personalidad. */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #121212; /* Un fondo oscuro base por si la imagen tarda en cargar */
+    background-color: #121212; 
 }
 
-/* Reutilizamos tu capa de fondo */
 .background-overlay {
     position: fixed;
     top: 0;
@@ -20,47 +17,44 @@ body {
     transition: background-image 0.8s ease-in-out;
 }
 
-/* 2. AJUSTE DEL CARRUSEL (ENCABEZADO)
-   Bootstrap ya maneja el ancho, pero podemos darle una altura fija 
-   para que no ocupe toda la pantalla si las fotos son muy grandes. */
+  
 header .carousel-item {
-    height: 110vh; /* Ajusta esta altura a tu gusto */
-    min-height: 500px;  /* Evita que se vea muy chico en pantallas pequeñas */
+    height: 110vh; 
+    min-height: 500px; 
 }
 
 header .carousel-item img {
     height: 100%;
     width: 100%;
-    object-fit: cover;                /* Muestra la foto entera sin recortar nada */
-    object-position: center;            /* Centra la imagen */
-    background-color: #000;            /* Opcional: pone un fondo negro para los espacios vacíos */
+    object-fit: cover;                
+    object-position: center;            
+    background-color: #000;            
 }
 
 /* 2. Mejora del texto (Caption) */
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente para legibilidad */
+    background: rgba(0, 0, 0, 0.5); 
     padding: 20px;
     border-radius: 10px;
-    bottom: 10%; /* Lo subimos un poco para que no esté pegado al borde */
+    bottom: 10%; 
 }
 
 .carousel-caption h5 {
-    font-size: 2.5rem;   /* Nombre del dragón bien grande */
+    font-size: 2.5rem;   
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #ff4500;      /* Un color naranja fuego para el nombre */
+    color: #ff4500;      
 }
 
 .carousel-caption p {
-    font-size: 1.2rem;   /* Descripción clara */
+    font-size: 1.2rem;   
     font-style: italic;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(98%) contrast(105%);
-    /* Esto convierte el blanco en un tono naranja fuego */
     width: 3rem;
     height: 3rem;
 }
@@ -73,26 +67,26 @@ header .carousel-item img {
     animation: fadeInUp 1.2s ease-in-out;
 }
 
-/* 1. Escondemos el texto por defecto cuando la foto no está activa */
+
 .carousel-item .carousel-caption h5,
 .carousel-item .carousel-caption p {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.3s ease; /* Para que desaparezcan suavemente al salir */
+    transition: opacity 0.3s ease; 
 }
 
-/* 2. Solo disparamos la animación cuando la clase .active está presente */
+
 .carousel-item.active .carousel-caption h5 {
     animation: fadeInDown 0.8s ease-out forwards;
-    animation-delay: 0.3s; /* Espera un poquito a que la foto se acomode */
+    animation-delay: 0.3s; 
 }
 
 .carousel-item.active .carousel-caption p {
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.5s; /* La descripción entra justo después del título */
+    animation-delay: 0.5s; 
 }
 
-/* Keyframes (Asegúrate de tenerlos así) */
+
 @keyframes fadeInDown {
     from { 
         opacity: 0; 
@@ -115,16 +109,16 @@ header .carousel-item img {
     }
 }
 
-/* Contenedor del tooltip */
+
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted #ffcc00; /* Subrayado para indicar que hay algo */
+  border-bottom: 1px dotted #ffcc00; 
   color: #ffcc00;
   cursor: help;
 }
 
-/* Texto del tooltip (oculto por defecto) */
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
@@ -135,23 +129,23 @@ header .carousel-item img {
   padding: 8px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Aparece arriba del texto */
+  bottom: 125%; 
   left: 50%;
   margin-left: -100px;
   opacity: 0;
-  transition: opacity 0.3s; /* Efecto suave de aparición */
+  transition: opacity 0.3s; 
   font-size: 0.8rem;
   line-height: 1.2;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
 }
 
-/* Mostrar el tooltip al pasar el mouse */
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
 
-/* Flechita del tooltip */
+
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
@@ -163,17 +157,16 @@ header .carousel-item img {
   border-color: #333 transparent transparent transparent;
 }
 
-/* 3. ESTILO PARA EL CUERPO (MAIN)
-   Le damos un estilo de "tarjeta" para que resalte sobre el fondo. */
+
 main {
-    background-color: rgba(255, 255, 255, 0.85); /* 0.85 para que sea un poco transparente */
+    background-color: rgba(255, 255, 255, 0.85); 
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px); /* Esto le da un efecto de vidrio esmerilado */
+    backdrop-filter: blur(5px); 
 }
 
-/* Asegura que todas las tarjetas midan lo mismo */
+
 .card {
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -181,22 +174,22 @@ main {
 }
 
 .card-body {
-    position: relative; /* Esto ayuda a que el span se ubique mejor */
+    position: relative; 
 }
 
-/* Efecto de elevación al pasar el mouse */
+
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-/* Ajuste para que las imágenes del cuerpo sean uniformes */
+
 .card-img-top {
-    height: 220px; /* Altura fija */
-    object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+    height: 220px; 
+    object-fit: cover; 
 }
 
-/* Estilo para los títulos dentro de las cards */
+
 .card-title {
     font-weight: bold;
     text-transform: uppercase;
@@ -204,29 +197,27 @@ main {
 }
 
 
-/* AL FINAL DE TU STYLE.CSS */
 
-/* 1. Contenedor del punto de interacción */
 .punto-interactivo {
-    position: relative; /* Base para posicionar la foto */
+    position: relative; 
     display: inline-block;
-    cursor: help; /* Indica que hay ayuda/info */
-    color: #e67e22; /* Un color naranja fuego para el icono */
-    margin-left: 10px; /* Separación del nombre */
-    font-size: 0.9em; /* Un poco más chico que el título */
+    cursor: help; 
+    color: #e67e22; 
+    margin-left: 10px; 
+    font-size: 0.9em; 
     transition: transform 0.2s ease;
 }
 
-/* Efecto visual al pasar el mouse por el punto */
+
 .punto-interactivo:hover {
-    transform: scale(1.2); /* Se agranda un poquito */
+    transform: scale(1.2); 
 }
 
-/* La foto (Estado inicial: OCULTA) */
+
 .foto-emergente {
-    display: block !important; /* La mantenemos en block pero invisible */
-    opacity: 0;                /* Invisible */
-    visibility: hidden;        /* No bloquea el mouse cuando está oculta */
+    display: block !important; 
+    opacity: 0;                
+    visibility: hidden;       
     position: absolute;
     bottom: 120%;
     left: 50%;
@@ -237,26 +228,27 @@ main {
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     z-index: 9999;
     
-    /* ESTO HACE LA MAGIA DEL RETRASO AL CERRARSE */
+    
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    transition-delay: 0s; /* Aparece instantáneamente al entrar */
+    transition-delay: 0s; 
 }
 
 
-/* REGLA: Cuando el mouse está sobre el PUNTO, mostramos la foto */
+
 .punto-interactivo:hover .foto-emergente {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
-    transition-delay: 0s; /* Sin demora al abrir */
+    transition-delay: 0s; 
 }
 
-/* 3. REGLA: Cuando el mouse SALE del punto, la foto tarda 1 segundo en ocultarse */
+
 .punto-interactivo .foto-emergente {
-    transition-delay: 1s; /* <--- AQUÍ ESTÁ EL SEGUNDO DE ESPERA */
+    transition-delay: 1s; 
 }
 
-/* Animación de aparición */
+
+
 @keyframes fadeInTooltip {
     from { 
         opacity: 0; 
@@ -270,21 +262,197 @@ main {
 
 
 .titulo-salvajes {
-    text-align: center;         /* Centra el texto */
-    display: block;             /* Asegura que ocupe el bloque completo */
-    width: 100%;                /* Obliga a que ocupe el ancho total para centrar bien */
-    color: #333333;             /* Un gris oscuro (casi negro) para mayor contraste */
-    font-weight: bold;          /* Le da más peso visual */
-    text-shadow: none;          /* Quitamos la sombra suave que hacía que se viera "desenfocado" */
-    margin: 40px auto;          /* 'auto' en los lados ayuda a centrar si el contenedor es estrecho */
-    border-bottom: 2px solid #333; /* Línea del mismo color oscuro */
+    text-align: center;        
+    display: block;             
+    width: 100%;               
+    color: #333333;             
+    font-weight: bold;          
+    text-shadow: none;         
+    margin: 40px auto;          
+    border-bottom: 2px solid #333; 
     padding-bottom: 10px;
     letter-spacing: 2px;
 }
 
 
-/* 4. FOOTER
-   Lo hacemos un poco más elegante. */
+
+
+.escala-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 500px; 
+    margin-top: 50px;
+}
+
+.linea-horizontal {
+    display: flex;
+    border-top: 2px solid #e67e22; 
+    width: 100%;
+    justify-content: space-around;
+}
+
+.dragon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* La barra que se estira verticalmente */
+.barra-vertical {
+    width: 30px;
+    background: linear-gradient(to top, #e67e22, #f1c40f);
+    position: absolute;
+    bottom: 100%; 
+    height: 0; 
+    transition: height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
+}
+
+.marcador-nombre {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.marcador-nombre:hover {
+    color: #e67e22;
+}
+
+
+
+
+
+
+.infografia-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.imagen-fondo {
+    width: 100%;
+    height: auto;
+    border: 3px solid #e67e22;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.punto-infografia {
+    position: absolute;
+    color: #e67e22;
+    font-size: 1.5rem;
+    cursor: help;
+    z-index: 10;
+}
+
+/** Nuevo marcador para un nuevo dragon **/
+
+.punto-infografia.balerion      { top: 2%; left: 49%; }
+.punto-infografia.vhagar        { top: 28%; left: 48%; }
+.punto-infografia.meraxes       { top: 46%; right: 51%; }
+.punto-infografia.vermithor     { top: 66%; right: 53%; }
+.punto-infografia.silverwing    { top: 77%; right: 55%; }
+.punto-infografia.dreamfyre     { top: 90%; right: 46%; }
+.punto-infografia.canibal       { top: 92%; right: 35%; }
+.punto-infografia.sheepstealer  { top: 84%; right: 38%; }
+.punto-infografia.caraxes       { top: 17%; right: 39%; }
+.punto-infografia.meleys        { top: 2%; right: 37%; }
+.punto-infografia.syrax         { top: 27%; right: 30%; }
+.punto-infografia.bruma         { top: 35%; right: 39%; }
+.punto-infografia.tessarion     { top: 76%; right: 34%; }
+.punto-infografia.sunfyre       { top: 42%; right: 37%; }
+.punto-infografia.vermax        { top: 50%; right: 29%; }
+.punto-infografia.arrax         { top: 56%; right: 25%; }
+.punto-infografia.moondancer    { top: 69%; right: 37%; }
+
+
+
+.info-tag {
+    position: absolute;
+    bottom: -160px; 
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: auto; 
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition-delay: 0.5s; 
+
+    width: 220px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid #e67e22;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+
+.tag-derecha { left: 200px !important; transform: none !important; }
+.tag-izquierda { left: auto !important; right: 200px !important; transform: none !important; }
+
+
+.conector-puente {
+    position: absolute;
+    bottom: 12px; 
+    left: 12px;
+    width: 2px;
+    height: 135px;
+    background: transparent !important; 
+    box-shadow: none !important;
+    z-index: 15;
+    display: none;
+    transform-origin: bottom center; 
+}
+
+
+.puente-derecha {
+    display: none;
+    transform: rotate(90deg); 
+    height: 190px; 
+}
+
+
+.puente-izquierda {
+    display: none;
+    transform: rotate(-90deg); 
+    height: 190px;
+}
+
+/* INTERACCIÓN */
+.punto-infografia:hover .conector-puente,
+.punto-infografia:hover .puente-derecha,
+.punto-infografia:hover .puente-izquierda {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    transition-delay: 0s;
+}
+
+.punto-infografia:hover .info-tag {
+     opacity: 1;
+    visibility: visible;
+    display: block;
+    transition-delay: 0s;
+}
+
+/* MANTENER ABIERTO AL POSAR EL MOUSE */
+.conector-puente:hover + .info-tag,
+.info-tag:hover,
+.conector-puente:hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transition-delay: 0s !important;
+}
+
+
+.foto-infografia { width: 100%; border-radius: 5px; margin-bottom: 8px; }
+.info-tag b { color: #f1c40f; }
+
+
+/*FOOTER */
 footer {
-    border-top: 3px solid #0d6efd; /* Una línea azul (color de Bootstrap) arriba */
+    border-top: 3px solid #0d6efd; 
 }
